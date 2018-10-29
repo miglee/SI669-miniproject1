@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{listId}}.{{listTitle}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <h2> List Items:</h2>
+  <ion-list lines="full">
+
+<!--     <ion-item *ngFor="let h of lists" (click)="selectList(h)" detail> -->
+    <ion-item *ngFor="let h of itemsArray"  detail>
+      <ion-label>
+        {{h.itemId}},{{ h.itemTitle }}
+      </ion-label>
+            <ion-button (click)=removeItem(h)>Remove</ion-button>
+    </ion-item>
+      <ion-label>
+        Create New Item:
+      </ion-label>
+      <ion-input  [(ngModel)]="inputNewItem"></ion-input>
+      <ion-button (click)=saveNewItem()>Save</ion-button>
+
+<!--       <ion-button (click)=getDefaultanData()>Get Default Data</ion-button> -->
+<!--       <ion-button (click)=cleanData()>Clean All Lists</ion-button> -->
+  </ion-list>
+
+
+<!--       <ion-label *ngIf="edit!=true">
+        {{ h.listTitle }}
+      </ion-label>
+            <ion-button *ngIf="edit!=true" (click)=editList()>Edit</ion-button>
+      <ion-input *ngIf="edit===true" [(ngModel)]="heroName"></ion-input>
+
+      <ion-button *ngIf="edit===true" (click)=saveNewListTitle()>Save</ion-button> -->
+

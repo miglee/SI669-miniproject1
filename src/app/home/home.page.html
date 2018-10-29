@@ -1,12 +1,30 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+  <h2> Lists:</h2>
+  <ion-list lines="full">
+
+<!--     <ion-item *ngFor="let h of lists" (click)="selectList(h)" detail> -->
+    <ion-item *ngFor="let h of listsArray"  detail>
+      <ion-label (click)="goToDetail(h.listId)">
+        {{h.listId}},{{ h.listTitle }}
+      </ion-label>
+            <ion-button (click)=removeList(h)>Remove</ion-button>
+    </ion-item>
+      <ion-label>
+        Create New List:
+      </ion-label>
+      <ion-input  [(ngModel)]="inputNewList"></ion-input>
+      <ion-button (click)=saveNewList()>Save</ion-button>
+
+<!--       <ion-button (click)=getDefaultanData()>Get Default Data</ion-button> -->
+<!--       <ion-button (click)=cleanData()>Clean All Lists</ion-button> -->
+  </ion-list>
+
 </ion-content>
